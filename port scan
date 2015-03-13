@@ -10,7 +10,7 @@ for host in hosts:
       s.send('Primal Security \n')                           //发送一个数据包
       banner = s.recv(1024)                                  //recv是用来接收数据包，1024是大小
       if banner:                                            //如果有内容
-        print "[+] Port "+str(port)+" open: "+banner
+        print "[+] Port "+str(port)+" open: "+banner        //看服务器上开了啥
       s.close()
     except:pass
     
