@@ -1,0 +1,23 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+import requests
+a = open("ip.txt","r")
+b = ("/index.action","/index.do","/login.do","/login.action")
+x = open("success.txt","w")
+for c in a:
+	d = c.strip()
+	for e in b:
+		g = requests.get(str(d) + str(e))
+		print g.url
+		if g.status_code == 200:
+			print>>x,	g.url	
+a.close()
+x.close()
+
+
+备注：
+ip.txt放要扫描的url，一行一个
+b那里可以自定义要扫描的str2后缀
+会把返回200的写到success文档里
+
+然后可以再利用str2批量EXP工具，把成功的url导入进去
