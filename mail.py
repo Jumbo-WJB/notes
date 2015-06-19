@@ -1,8 +1,9 @@
+a = open('mail.txt','w')
 x = open('xingming500.txt','r')
 for f in x:
 	f = f.strip()
 	print f + '@chinabaiker.com'
-	
+	print>>a,f + '@chinabaiker.com'
 	
 	
 	
