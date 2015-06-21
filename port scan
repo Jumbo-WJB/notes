@@ -3,7 +3,7 @@ s = socket.socket()
 hosts = ['127.0.0.1','192.168.1.5','10.0.0.1']
 prots = [22,445,80,443,3389]
 for host in hosts:
-  for port in ports
+  for port in ports:
     try:                                                      //防错误
       print "[+] Connecting to "+host+":"str(port)
       s.connect((host,port))
