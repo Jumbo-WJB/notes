@@ -10,7 +10,7 @@ for c in a:
 		g = requests.get(str(d) + str(e))
 		print g.url
 		if g.status_code == 200:
-			print>>x,	g.url	
+			print>>x,g.url	
 a.close()
 x.close()
 
