@@ -1,3 +1,15 @@
+脚本亮点：password字典支持：{username}123 这种形式。可以自定义如果用户名是test则密码为test123
+在渗透一些大企业的员工邮箱中可以用到。
+用法：mailbrute.py <userlist> <wordlist> <port> <server> <@example.com>
+         mailbrute.py user.txt pass.txt 110 pop.qq.com @xxx.com
+         --user.txt 用户名字典
+         --pass.txt 密码字典
+         --110 端口（这里可以是110或者995）
+         --pop.qq.com 邮件server
+         --@xxx.com 邮箱后缀
+         
+
+
 import poplib
 import sys
 import time
