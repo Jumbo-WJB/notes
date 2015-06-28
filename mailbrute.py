@@ -1,4 +1,5 @@
 脚本亮点：password字典支持：{username}123 这种形式。可以自定义如果用户名是test则密码为test123
+成功的帐号密码实时显示，不必等到结束后才能看到，而且会把结果保存在同目录的mailsuccess.txt中。
 在渗透一些大企业的员工邮箱中可以用到。
 用法：mailbrute.py <userlist> <wordlist> <port> <server> <@example.com>
          mailbrute.py user.txt pass.txt 110 pop.qq.com @xxx.com
