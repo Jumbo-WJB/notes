@@ -16,7 +16,7 @@ import sys
 import time
  
 if len(sys.argv) !=6:
-	print "\tUsage: ./popbrute.py <userlist> <wordlist> <port> <server> <@chinabaiker.com> \n"
+	print "\tUsage: %s <userlist> <wordlist> <port> <server> <@chinabaiker.com> \n" %sys.argv[0]
 	sys.exit(1)
 success1 = open('mailsuccess1.txt','w')
 user = sys.argv[1]
