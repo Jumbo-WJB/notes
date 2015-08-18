@@ -1,14 +1,17 @@
 import sys
-key = sys.argv[1]
-dic = open('dic.txt','r')
-suc = open('ok.txt','w')
-for a in dic:
-    a = a.strip()
-    a = a.replace("%username%",key)
-    print a
-    suc.write(a+'\n')
-dic.close()
-suc.close()
+try:
+    key = sys.argv[1]
+    dic = open('dic.txt','r')
+    suc = open('ok.txt','w')
+    for a in dic:
+        a = a.strip()
+        a = a.replace("%username%",key)
+        print a
+        suc.write(a+'\n')
+    dic.close()
+    suc.close()
+except:
+    print "usage: %s chinabaiker" % sys.argv[0]
 
 
 
