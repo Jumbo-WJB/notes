@@ -11,4 +11,15 @@ dic.close()
 suc.close()
 
 
+
+
+使用方法
+python weakpwdfuzz.py chinabaiker
+-------
+chinabaiker
+chinabaiker1
+chinabaiker12
+chinabaiker123
+chinabaiker123
+--------
 dic.txt放模版字典，本目录有个规则，可以直接使用
