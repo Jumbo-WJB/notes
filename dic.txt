@@ -2,7 +2,6 @@
 %username%1 
 %username%12 
 %username%123 
-%username%123 
 %username%12345 
 %username%123456 
 %username%1234567 
