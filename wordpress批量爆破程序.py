@@ -37,8 +37,10 @@ for x in urls:
 					response = urllib2.urlopen(request)
 					text = response.read()
 					#print text
+					if text.find('Dashboard')!=-1 or text.find('仪表盘').decode('gb2312').encode('utf-8')!=-1:
+						print 'success',qq.url , 'username is: ' + u , 'password is : ' + p
+						print>>bc,'success',qq.url , 'username is: ' + u , 'password is : ' + p
+						break
 	except:
 		pass
-	if text.find('Dashboard')!=-1 or text.find('仪表盘')!=-1:
-		print 'success',qq.url , 'username is: ' + u , 'password is : ' + p
-		print>>bc,'success',qq.url , 'username is: ' + u , 'password is : ' + p
+	
