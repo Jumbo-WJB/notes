@@ -4,7 +4,7 @@
 import urllib
 import requests
 import re
-i = 72
+i = range(100)
 #print i
 url = "http://www.baidu.com:8000/Liems/ExportWord?pkValue=%s" %i
 res = urllib.urlopen(url)
