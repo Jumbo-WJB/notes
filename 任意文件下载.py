@@ -7,11 +7,6 @@ import re
 i = 72
 #print i
 url = "http://www.baidu.com:8000/Liems/ExportWord?pkValue=%s" %i
-#outfile = open(filename,'wb')
-#outfile.write(result.read())
-#outfile.close()
-#print url
-#urllib.urlretrieve(url,filename)
 res = urllib.urlopen(url)
 #print res
 #print res.info()
