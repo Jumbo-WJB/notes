@@ -15,7 +15,7 @@ try:
 	f = open(zhan + ".txt","w")
 	jieguo = urllib.urlopen(url + str(zhan))
 	content = jieguo.read()
-	ree = r"\<a href=\'(.*?)\' target=_blank\>"                    //(.*?)非贪婪匹配
+	ree = r"\" target\=\_blank\>(.*?)\<\/a\>\<\/div\>"
 	ss = re.findall(ree,content)
 	for x in ss:
 		print>>f,x
