@@ -1,12 +1,14 @@
-//python subdomain_brute_th.py chinabaiker.com
+#python subdomain_brute_th.py chinabaiker.com 50
+#author:Jumbo
 import socket
 import sys
 import threading
 import Queue
 
 class SubDomainBrute(object):
-    def __init__(self,domain):
+    def __init__(self,domain,thread):
         self.domain = domain
+        self.thread = thread
         self.queue = Queue.Queue()
 
 
@@ -34,11 +36,12 @@ class SubDomainBrute(object):
         except:
             pass
 
-subdomain = sys.argv[1]
-work = SubDomainBrute(subdomain)
+domain = sys.argv[1]
+thread = sys.argv[2]
+work = SubDomainBrute(domain,thread)
 mutex = threading.Lock()
 work.open_dict()
-for x in range(10):
+for x in range(int(thread)):
     t = threading.Thread(target=work.run)
     t.start()
     t.join()
