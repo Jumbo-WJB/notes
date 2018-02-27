@@ -16,9 +16,6 @@ class SubDomainBrute(object):
         for sub in open('sub.txt', 'r'):
             self.queue.put(sub.strip())
 
-
-
-
     def run(self):
         while not self.queue.empty():
             domain  = self.queue.get()
@@ -41,7 +38,8 @@ thread = sys.argv[2]
 work = SubDomainBrute(domain,thread)
 mutex = threading.Lock()
 work.open_dict()
-for x in range(int(thread)):
-    t = threading.Thread(target=work.run)
+threadlist = [threading.Thread(target=work.run) for x in xrange(int(thread))]
+for t in threadlist:
     t.start()
+for t in threadlist:
     t.join()
