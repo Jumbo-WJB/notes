@@ -63,7 +63,7 @@ $result =  mysqli_query($conn,$sql)
 <select name="username">
 <option value=0>--用户名--</option>
 <?php
-$sql2 = "SELECT * from vuln";
+$sql2 = "SELECT distinct username from vuln";
 $result2 = mysqli_query($conn,$sql2);
 if ($result2->num_rows > 0) {
     while($row2 = $result2->fetch_assoc()) {
@@ -84,15 +84,15 @@ if ($result2->num_rows > 0) {
 <select name="project">
 <option value=0>--项目名称--</option>
 <?php
-$result2 = mysqli_query($conn,$sql2);
-if ($result2->num_rows > 0) {
-    while($row2 = $result2->fetch_assoc()) {
-        echo "<option value='$row2[project]'>$row2[project]</option>";
+$sql4 = "SELECT distinct project from vuln";
+$result4 = mysqli_query($conn,$sql4);
+if ($result4->num_rows > 0) {
+    while($row4 = $result4->fetch_assoc()) {
+        echo "<option value='$row4[project]'>$row4[project]</option>";
     }
 }
 
 ?>
-
 
 </select>
 <input type="submit" value="查询">
@@ -119,10 +119,3 @@ echo "</table>";
 ?>
 </body>
 </html>
-//CREATE DATABASE vuln;
-//use vuln;
-//create table vuln(username varchar(20),project varchar(100), high int(100), medium int(100), low int(100));
-//desc vuln;
-//insert into users (username,project,high,medium,low) values ('姓名','客户','10','2','20');
-//show create table vuln;
-//alter table vuln convert to character set utf8;      
