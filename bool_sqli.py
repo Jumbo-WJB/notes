@@ -2,7 +2,6 @@ import requests
 
 
 def GetQ():
-    reuslt = []
     pd = ''
     payload = '0123456789abcdefghijklmnopqrstuvwxyz!_@%.'
     for i in range(30):
